@@ -1,0 +1,40 @@
+%传递函数建立 tf
+A = tf(1,[1 1 0]);
+B = tf(10,1);
+C = tf([0.4682 1],[0.1018 1]);
+G0 = A*B;
+G = A*B*C;
+
+%单位反馈系统闭环传递函数 feedback
+A1=feedback(A,1,-1);
+A1=feedback(A,1,-1);
+
+%阶跃响应 step
+[y1, t1]=step(A1, 0:0.01:50);
+
+% Bode图 bode
+% bode(A);
+% hold on;
+% bode(C);
+% hold on;
+% bode(G1);
+% hold on;
+% bode(G);
+
+	
+% %奈式图nyquist
+% nyquist(A);
+
+%求裕度margin；
+% margin(A);
+% hold on;
+% margin(G0);
+% hold on;
+% margin(G);
+
+% %斜坡响应：
+% y = lsim(Ab,u,t);
+
+
+
+
